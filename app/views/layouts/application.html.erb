@@ -18,21 +18,40 @@
       <div class="collapse navbar-collapse" id="main-nav">
         <div class="navbar-nav">
           <%= link_to "Home", root_url, class: "nav-item nav-link active" %>
+          <%= link_to "Dashboard", auth_dashboard_index_path, class: "nav-item nav-link" %>
+          <% if user_signed_in? %>
+            <li>
+            <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-item nav-link") %>
+            </li>
+          <% else %>
+            <li>
+            <%= link_to('Login', new_user_session_path, class: "nav-item nav-link") %>
+            </li>
+          <% end %>
         </div>
       </div>
     </nav>
-    <div class="jumbotron">
-      <h1 class="display-4">BPPWD Support Forum</h1>
-      <p class="lead">Access to the BPPWD Support Forum is available to all students in the Programming and Web Development shop at Bay Path
-        Regional Vocational Technical High School.  The support forum enables students to post questions regarding shop curriculum and receive
-        feedback from peers.  Students will also have access to student created video tutorials and have the ability to post their own videos
-        and tutorials to help others. </p>
-      <hr class="my-4">
-      <p>To get setup with an account, please contact your instructor!</p>
-      <a class="btn btn-primary btn-lg" href="#" role="button">Request Access</a>
-    </div>
-    <div class="container-fluid">
-      <%= yield %>
+    <% if current_page?(root_url) %>
+      <%= render partial: "/layouts/home-jumbotron" %>
+    <% end %>
+    <div id="main-container" class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <% if alert %>
+            <div class="alert alert-danger" role="alert">
+              <%= alert %>
+            </div>
+          <% end %>
+          <% if notice %>
+            <div class="alert alert-warning" role="alert">
+              <%= notice %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col"><%= yield %></div>
+      </div>
     </div>
   </body>
 </html>
