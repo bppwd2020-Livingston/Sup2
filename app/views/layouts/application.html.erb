@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Myapp</title>
+    <title>Support Forum</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,29 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-dark bg-primary">
+      <span class="navbar-brand mb-0 h1"><%= link_to "BPPWD.NET", root_url %></span>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="main-nav">
+        <div class="navbar-nav">
+          <%= link_to "Home", root_url, class: "nav-item nav-link active" %>
+        </div>
+      </div>
+    </nav>
+    <div class="jumbotron">
+      <h1 class="display-4">BPPWD Support Forum</h1>
+      <p class="lead">Access to the BPPWD Support Forum is available to all students in the Programming and Web Development shop at Bay Path
+        Regional Vocational Technical High School.  The support forum enables students to post questions regarding shop curriculum and receive
+        feedback from peers.  Students will also have access to student created video tutorials and have the ability to post their own videos
+        and tutorials to help others. </p>
+      <hr class="my-4">
+      <p>To get setup with an account, please contact your instructor!</p>
+      <a class="btn btn-primary btn-lg" href="#" role="button">Request Access</a>
+    </div>
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
   </body>
 </html>
