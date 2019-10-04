@@ -1,0 +1,28 @@
+<div class="col-11 m-auto">
+  <h1>Listing All Questions</h1>
+  <p><%= link_to "Post Question", auth_questions_new_path %></p>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Question</th>
+        <th scope="col">Posted By</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @questions.each do |q| %>
+        <tr>
+          <th scope="row"><%= q.id %></th>
+          <td>
+            <p><strong><%= q.title %></strong></p>
+            <p><%= q.body %></p>
+            <p><strong>What have you tried?</strong></p>
+            <p><%= q.whyt %></p>
+            <p><%= link_to "Post Response", auth_responses_new_path(id: q.id) %></p>
+          </td>
+          <td><%= q.user.email %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,7 +1,17 @@
 Rails.application.routes.draw do
   namespace :auth do
     get 'dashboard/index'
+
+    get 'responses/index'
+    get 'responses/new'
+    post 'responses/create'
+
+    get 'questions/index'
+    get 'questions/new'
+    post 'questions/create'
+
   end
+
   devise_for :users
   get 'pages/home'
 

@@ -1,0 +1,24 @@
+<div class="col-11 m-auto">
+  <h1>Listing All Responses</h1>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Response</th>
+        <th scope="col">Posted By</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @responses.each do |r| %>
+        <tr>
+          <th scope="row"><%= r.id %></th>
+          <td>
+            <p><strong><%= r.question.title %></strong></p>
+            <p><%= r.body %></p>
+          </td>
+          <td><%= r.user.email %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
