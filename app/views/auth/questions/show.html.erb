@@ -1,0 +1,13 @@
+<div class="col-11 m-auto">
+  <h1><%= @question.title %></h1>
+  <p>Posted By: <%= @question.user.email %></p>
+  <p><%= @question.body %></p>
+  <p><%= @question.whyt %></p>
+  <hr />
+  <h4>Responses</h4>
+  <% @question.responses.each do |r| %>
+    <p><%= r.body %></p>
+    <p>Submitted By: <%= r.user.email %></p>
+    <hr />
+  <% end %>
+</div>

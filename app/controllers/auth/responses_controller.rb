@@ -6,6 +6,10 @@ class Auth::ResponsesController < ApplicationController
     @responses = Response.order(created_at: :desc)
   end
 
+  def show
+    @response = Response.find(params[:id])
+  end
+
   def new
     @response = Response.new
     @question = Question.find(params[:id])

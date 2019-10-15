@@ -1,7 +1,7 @@
 <div class="col-10 m-auto">
   <h1>New Response</h1>
 
-  <%= form_with model: @response, url: auth_responses_create_path do |f| %>
+  <%= form_with model: @response, url: auth_responses_create_path, local: true do |f| %>
 
     <div class="form-group">
       <label for="titleInput">Posted By: <%= current_user.email %></label>

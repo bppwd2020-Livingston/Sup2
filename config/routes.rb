@@ -3,10 +3,12 @@ Rails.application.routes.draw do
     get 'dashboard/index'
 
     get 'responses/index'
+    get 'responses/show'
     get 'responses/new'
     post 'responses/create'
 
     get 'questions/index'
+    get 'questions/show'
     get 'questions/new'
     post 'questions/create'
 

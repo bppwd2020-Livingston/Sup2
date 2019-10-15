@@ -14,11 +14,11 @@
         <tr>
           <th scope="row"><%= q.id %></th>
           <td>
-            <p><strong><%= q.title %></strong></p>
+            <p><strong><%= link_to q.title, auth_questions_show_path(id: q.id) %></strong></p>
             <p><%= q.body %></p>
             <p><strong>What have you tried?</strong></p>
             <p><%= q.whyt %></p>
-            <p><%= link_to "Post Response", auth_responses_new_path(id: q.id) %></p>
+            <p>Total Responses: [<%= q.responses.length %>] <%= link_to "Post Response", auth_responses_new_path(id: q.id), class: "ml-2" %></p>
           </td>
           <td><%= q.user.email %></td>
         </tr>

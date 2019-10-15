@@ -1,2 +1,36 @@
-<h1>Auth::Dashboard#index</h1>
-<p>Find me in app/views/auth/dashboard/index.html.erb</p>
+<div class="col-12 m-auto">
+  <h1>Administrative Dashboard</h1>
+  <div class="row">
+    <div class="col-6">
+      <div class="card">
+        <div class="card-header">
+          <h5>Recent Support Activity</h5>
+        </div>
+        <div class="card-body">
+          <table class="table table-hover">
+            <tbody>
+              <% @questions.each do |q| %>
+                <tr>
+                  <td>
+                    <p><strong><%= q.title %></strong></p>
+                    <p>Posted By: <%= q.user.email %></p>
+                    <p>
+                      <%= q.body[0..100] %>
+                      <% if q.body.length > 101 %>
+                        ... <%= link_to "[more]", "#" %>
+                      <% end %>
+                    </p>
+                    <p><%= link_to "Post Response", auth_responses_new_path(id: q.id) %></p>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer text-muted">
+          <%= link_to "View All Questions", auth_questions_index_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="col-11 m-auto">
+  <h1><%= @response.question.title %></h1>
+  <p>Posted By: <%= @response.question.user.email %></p>
+  <p><%= @response.question.body %></p>
+  <p><%= @response.question.whyt %></p>
+  <hr />
+  <h4>Response</h4>
+    <p><%= @response.body %></p>
+    <p>Submitted By: <%= @response.user.email %></p>
+    <hr />
+</div>

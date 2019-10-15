@@ -13,7 +13,7 @@
         <tr>
           <th scope="row"><%= r.id %></th>
           <td>
-            <p><strong><%= r.question.title %></strong></p>
+            <p><strong><%= link_to r.question.title, auth_responses_show_url(id: r.id) %></strong></p>
             <p><%= r.body %></p>
           </td>
           <td><%= r.user.email %></td>
