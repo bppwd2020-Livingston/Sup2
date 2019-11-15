@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+  namespace :auth do
+    get 'users/index'
+  end
   resources :roles
   
   namespace :auth do
     get 'dashboard/index'
+    post 'users/update_roles'
 
     get 'responses/index'
     get 'responses/show'

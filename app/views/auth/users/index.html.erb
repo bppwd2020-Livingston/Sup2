@@ -1,0 +1,29 @@
+<h1>Listing All Users</h1>
+<table class="table table-striped table-sm">
+    <thead>
+      <tr>
+
+        <th>Email</th>
+        <th>Change Role</th>
+      </tr>
+
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td>
+        	<%= form_with(url: auth_users_update_roles_path(id: user.id), method: "post") do %>
+          		<% @roles.each do |r| %>
+					<div class="user_radio_btn">
+    					<%= check_box_tag r.title, true, user.has_role(r) %>
+						<%= label_tag(r.title, r.title) %>
+					</div>
+				<% end %>
+				<p><%= submit_tag "Update Role" %></p>
+    		<% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
