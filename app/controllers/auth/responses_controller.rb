@@ -23,6 +23,25 @@ class Auth::ResponsesController < ApplicationController
       render auth_responses_new_path
     end
   end
+  
+  def edit
+  	@response = Response.find(params[:id])
+  end
+  
+  def update
+  	@response = Response.find(params[:id])
+  	if @response.update(response_params)
+	  	redirect_to auth_responses_index_path
+	else
+		render auth_responses_new_path
+	end
+  end
+  
+  def destroy
+    @response = Response.find(params[:id])
+    @response.destroy
+    redirect_to auth_responses_index_path
+  end
 
   private
 

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :roles
+  
   namespace :auth do
     get 'dashboard/index'
 
@@ -6,11 +8,18 @@ Rails.application.routes.draw do
     get 'responses/show'
     get 'responses/new'
     post 'responses/create'
+    get 'responses/edit'
+    patch 'responses/update'
+    delete 'responses/destroy'
 
     get 'questions/index'
     get 'questions/show'
     get 'questions/new'
     post 'questions/create'
+    get 'questions/edit'
+    patch 'questions/update'
+    delete 'questions/destroy'
+
 
   end
 

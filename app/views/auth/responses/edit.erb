@@ -1,0 +1,24 @@
+<div class="col-10 m-auto">
+  <h1>New Response</h1>
+
+  <%= form_with model: @response, url: auth_responses_update_path(id: @response), local: true do |f| %>
+
+    <div class="form-group">
+      <label for="titleInput">Posted By: <%= current_user.email %></label>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+    </div>
+    <div class="form-group">
+      <label for="question">
+        <strong>Question:</strong> <%= @response.question.title %>
+        <p><%= @response.question.body %></p>
+      </label>
+      <%= f.hidden_field :question_id, :value => @response.question.id %>
+    </div>
+    <div class="form-group">
+      <label for="bodyTextfield">Response</label>
+      <%= f.text_area :body, placeholder: "Enter your detailed response here...", size: "60x12", class: "form-control" %>
+    </div>
+    <%= f.submit "Update Response", class: "btn btn-primary" %>
+    <%= link_to "Back", auth_responses_index_path, class: "ml-2" %>
+  <% end %>
+</div>

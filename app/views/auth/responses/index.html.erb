@@ -15,6 +15,10 @@
           <td>
             <p><strong><%= link_to r.question.title, auth_responses_show_url(id: r.id) %></strong></p>
             <p><%= r.body %></p>
+            <p>
+	        	<%= link_to "[Edit]", auth_responses_edit_path(id: r.id), class: "ml-2" %> | 
+	            <%= link_to '[Destroy]', auth_responses_destroy_path(id: r.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+            </p>
           </td>
           <td><%= r.user.email %></td>
         </tr>
