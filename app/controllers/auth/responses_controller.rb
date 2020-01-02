@@ -1,6 +1,7 @@
 class Auth::ResponsesController < ApplicationController
 
   before_action :authenticate_user!
+  before_action {authorize self}
 
   def index
     @responses = Response.order(created_at: :desc)

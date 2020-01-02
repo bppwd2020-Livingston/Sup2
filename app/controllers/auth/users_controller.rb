@@ -1,5 +1,8 @@
 class Auth::UsersController < ApplicationController
   
+	before_action :authenticate_user!
+	before_action {authorize self}
+
   def index
 	@users = User.order(email: :asc)
 	@roles = Role.all
@@ -9,7 +12,6 @@ class Auth::UsersController < ApplicationController
 	user = User.find(params[:id])
 	user.roles = []
 	Role.all.each do |r|
-		puts params[r.title]
 		if params[r.title]
 			user.roles << r
 		end
