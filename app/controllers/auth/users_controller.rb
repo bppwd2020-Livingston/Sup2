@@ -1,13 +1,13 @@
 class Auth::UsersController < ApplicationController
-  
-	before_action :authenticate_user!
-	before_action {authorize self}
+
+	#before_action :authenticate_user!
+	#before_action {authorize self}
 
   def index
 	@users = User.order(email: :asc)
 	@roles = Role.all
   end
-  
+
   def update_roles
 	user = User.find(params[:id])
 	user.roles = []
@@ -19,5 +19,5 @@ class Auth::UsersController < ApplicationController
 
   	redirect_to auth_users_index_path
   end
-  
+
 end

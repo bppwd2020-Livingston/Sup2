@@ -20,6 +20,9 @@
       <label for="bodyTextfield">What have you tried?</label>
       <%= f.text_area :whyt, placeholder: "What have you tried already, prior to posting this question...", size: "60x12", class: "form-control" %>
     </div>
+    <div>
+<%= f.attachment_field :zip_file %>
+</div>
     <%= f.submit "Update Question", class: "btn btn-primary" %>
     <%= link_to "Back", auth_questions_index_path, class: "ml-2" %>
   <% end %>

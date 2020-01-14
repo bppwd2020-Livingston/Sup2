@@ -24,11 +24,11 @@ class Auth::ResponsesController < ApplicationController
       render auth_responses_new_path
     end
   end
-  
+
   def edit
   	@response = Response.find(params[:id])
   end
-  
+
   def update
   	@response = Response.find(params[:id])
   	if @response.update(response_params)
@@ -37,7 +37,7 @@ class Auth::ResponsesController < ApplicationController
 		render auth_responses_new_path
 	end
   end
-  
+
   def destroy
     @response = Response.find(params[:id])
     @response.destroy
@@ -47,7 +47,7 @@ class Auth::ResponsesController < ApplicationController
   private
 
   def response_params
-    params.require(:response).permit(:user_id, :question_id, :body)
+    params.require(:response).permit(:user_id, :question_id, :body, :zip_file)
   end
 
 end

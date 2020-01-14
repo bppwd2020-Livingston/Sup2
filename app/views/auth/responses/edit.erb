@@ -18,6 +18,9 @@
       <label for="bodyTextfield">Response</label>
       <%= f.text_area :body, placeholder: "Enter your detailed response here...", size: "60x12", class: "form-control" %>
     </div>
+    <div>
+      <%= f.attachment_field :zip_file %>
+</div>
     <%= f.submit "Update Response", class: "btn btn-primary" %>
     <%= link_to "Back", auth_responses_index_path, class: "ml-2" %>
   <% end %>

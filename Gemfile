@@ -33,6 +33,11 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'refile', require: 'refile/rails', github: 'refile/refile', branch: 'master'
+
+
+gem 'refile-mini_magick', github: 'refile/refile-mini_magick', branch: 'master'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
